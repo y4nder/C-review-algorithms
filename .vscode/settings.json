@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "limits": "c"
+    },
+    "cmake.configureOnOpen": true
+}
