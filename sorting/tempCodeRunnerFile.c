@@ -1,2 +1,1 @@
-
-                swap(&a[i
+        printf("%d ", n[i]);

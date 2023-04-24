@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int BinarySearcher(int *n, int len, int x){
+    int mid;
+    int i = 0;
+    while(i <= len){
+        mid = (i+len)/2;
+
+        if(n[mid] == x) return mid;
+        
+        if(n[mid] < x){
+            i = mid + 1;
+        }
+        else{
+            len = mid - 1;
+        }
+    }
+    return -1;
+}
+
+int main(){
+    int n[] = {1, 2, 3, 4, 5, 6, 7};
+    int len = sizeof(n)/sizeof(n[0]);
+    int x = BinarySearcher(n, len - 1, 5) ;
+    printf("%d\n", len);
+    printf("%d", x);
+    return 0;
+}

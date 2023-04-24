@@ -4,10 +4,8 @@
 int binarySearch(int key, int *a, int min, int max){
     int mid, count = 0;
     while(min <= max){
-        count++;
         mid = (min + max)/2;
         if(a[mid] == key){
-            printf("looped = %d\n", count);
             return mid;
         }
         else if(a[mid] < key){
