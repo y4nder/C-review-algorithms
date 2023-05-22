@@ -13,7 +13,7 @@ int length(char *s){
 }
 
 int main(){
-    char c[] = "level";
-    printf("%d\n", length(c));
+    char c[] = "gog";
+    //printf("%d\n", length(c));
     printf("%d\n", IsPalindrome(c, length(c)) );
 }
