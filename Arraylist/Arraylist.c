@@ -18,7 +18,7 @@ void displayArray(Arraylist a){
         for(int i = 0; i < a.counter; i++)
             printf("%d ", a.list[i]);
     }
-    else printf("nothing to print");
+    else printf("nothing to print\n");
 }
 
 void Addnum(Arraylist *a, int num){
@@ -49,25 +49,81 @@ void DelArr(Arraylist *a){
     a->counter = 0;
 }
 
+void AddnumPos(Arraylist *a, int num, int pos){
+    if( (pos + 1) < MAX){
+        if( pos > a->counter){
+            a->counter++;
+            for(int i = a->counter + 1; i < pos; i++){
+                a->list[i] = 0;
+            }
+
+            a->list[pos] = num;
+        }
+
+        else{
+            a->counter++;
+            for(int i = a->counter - 1 ; i > pos - 1; i-- ){
+                a->list[i] = a->list[i + 1];
+            }
+
+            a->list[pos] = num;
+        }
+
+    }
+}
+
 int main(){
     Arraylist a;
     initArray(&a);
-    Addnum(&a, 3);
-    Addnum(&a, 2);
-    Addnum(&a, 2);
-    Addnum(&a, 19);
+    int x, num, pos;
 
-    displayArray(a);
-    printf("\n");
+    do
+    {
+        printf("options: \n");
+        printf("1: add to array \n");
+        printf("2: delete first element\n");
+        printf("3: delete last element\n");
+        printf("4: delete entire array\n");
+        printf("5: add at position\n");
+        printf("6: exit\n");
+        printf("choose: ");
+        scanf("%d", &x);
 
-    DelArr(&a);
-    displayArray(a);
-    printf("\n");
+        switch (x)
+        {
+        case 1: 
+            printf("enter num to add: ");
+            scanf("%d", &num);
+            Addnum(&a, num);
+            break;
+        
+        case 2:
+            DelFirst(&a);
+            break;
 
-    Addnum(&a, 2);
-    Addnum(&a, 19);
+        case 3: 
+            DelLast(&a);
+            break;
 
-    displayArray(a);
-    printf("\n");
+        case 4:
+            DelArr(&a);
+            break;
+        
+        case 5:
+            printf("enter num to add: ");
+            scanf("%d", &num);
+            printf("enter position: ");
+            scanf("%d", &pos);
+            AddnumPos(&a, num, pos - 1);
+            break;
+        }
+        
+        if(x != 6){
+            printf("\n");
+            displayArray(a);
+            printf("\n\n");
+        }
 
+    } while (x != 6);
+    
 }
