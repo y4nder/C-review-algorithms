@@ -52,22 +52,19 @@ void DelArr(Arraylist *a){
 void AddnumPos(Arraylist *a, int num, int pos){
     if( (pos + 1) < MAX){
         if( pos > a->counter){
-            a->counter++;
             for(int i = a->counter + 1; i < pos; i++){
                 a->list[i] = 0;
             }
-
+            
             a->list[pos] = num;
         }
 
         else{
-            a->counter++;
             for(int i = a->counter - 1 ; i > pos - 1; i-- ){
                 a->list[i] = a->list[i + 1];
             }
-
-            a->list[pos] = num;
         }
+        a->counter++;
 
     }
 }
