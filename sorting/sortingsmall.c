@@ -16,7 +16,7 @@ int Smallest(int *n, int start, int length){
     int smallest = start;
     for(int i = start + 1; i < length; i++){
         if(n[i] < n[smallest] ) smallest = i;
-    }
+    }   
     return smallest;
 }
 
