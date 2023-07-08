@@ -35,7 +35,8 @@ void sortSelect(city *c){
     int smallest;
     for(int i = 0; i < 3; i++){
         smallest = findSmallest(i, c);
-        swap(c,i,smallest);
+        if(c[i].temp != c[smallest].temp);
+            swap(c,i,smallest);
     }
 }
 
